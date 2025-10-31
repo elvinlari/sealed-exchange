@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm run build:ui",
+  "buildCommand": "sh -c 'corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm run build:ui'",
   "devCommand": "pnpm run dev",
-  "installCommand": "pnpm install",
+  "installCommand": "sh -c 'corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install'",
   "framework": null,
   "outputDirectory": "packages/ui/dist"
 }
