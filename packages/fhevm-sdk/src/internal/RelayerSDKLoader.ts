@@ -27,7 +27,7 @@ export class RelayerSDKLoader {
       );
     }
 
-    if ("relayerSDK" in window) {
+  if ("relayerSDK" in window) {
       if (!isFhevmRelayerSDKType(window.relayerSDK, this._trace)) {
         console.log("[RelayerSDKLoader] window.relayerSDK === undefined");
         throw new Error("RelayerSDKLoader: Unable to load FHEVM Relayer SDK");
@@ -35,51 +35,72 @@ export class RelayerSDKLoader {
       return Promise.resolve();
     }
 
-    return new Promise((resolve, reject) => {
-      const existingScript = document.querySelector(
-        `script[src="${SDK_CDN_URL}"]`
-      );
-      if (existingScript) {
-        if (!isFhevmWindowType(window, this._trace)) {
-          reject(
-            new Error(
-              "RelayerSDKLoader: window object does not contain a valid relayerSDK object."
-            )
+    // Try to load the ESM package directly (best for bundlers; avoids CORS for WASM)
+    return new Promise(async (resolve, reject) => {
+      try {
+        // Dynamically import the SDK.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // @ts-ignore - this is a runtime dynamic import; types are optional and provided by the app consuming this SDK
+  const mod: any = await import("@zama-fhe/relayer-sdk");
+        const sdk: unknown = (mod?.default ?? mod) as unknown;
+        if (!isFhevmRelayerSDKType(sdk, this._trace)) {
+          this._trace?.(
+            "RelayerSDKLoader: dynamic import yielded an invalid relayerSDK; falling back to CDN script."
           );
+          throw new Error("invalid-sdk");
         }
+        (window as unknown as FhevmWindowType).relayerSDK = sdk as FhevmRelayerSDKType;
         resolve();
         return;
-      }
+      } catch (e) {
+        // Fallback to CDN script injection as a last resort
+        const existingScript = document.querySelector(
+          `script[src="${SDK_CDN_URL}"]`
+        );
+        if (existingScript) {
+          if (!isFhevmWindowType(window, this._trace)) {
+            reject(
+              new Error(
+                "RelayerSDKLoader: window object does not contain a valid relayerSDK object."
+              )
+            );
+            return;
+          }
+          resolve();
+          return;
+        }
 
-      const script = document.createElement("script");
-      script.src = SDK_CDN_URL;
-      script.type = "text/javascript";
-      script.async = true;
+        const script = document.createElement("script");
+        script.src = SDK_CDN_URL;
+        script.type = "text/javascript";
+        script.async = true;
 
-      script.onload = () => {
-        if (!isFhevmWindowType(window, this._trace)) {
-          console.log("[RelayerSDKLoader] script onload FAILED...");
+        script.onload = () => {
+          if (!isFhevmWindowType(window, this._trace)) {
+            console.log("[RelayerSDKLoader] script onload FAILED...");
+            reject(
+              new Error(
+                `RelayerSDKLoader: Relayer SDK script has been successfully loaded from ${SDK_CDN_URL}, however, the window.relayerSDK object is invalid.`
+              )
+            );
+            return;
+          }
+          resolve();
+        };
+
+        script.onerror = () => {
+          console.log("[RelayerSDKLoader] script onerror... ");
           reject(
             new Error(
-              `RelayerSDKLoader: Relayer SDK script has been successfully loaded from ${SDK_CDN_URL}, however, the window.relayerSDK object is invalid.`
+              `RelayerSDKLoader: Failed to load Relayer SDK from ${SDK_CDN_URL}`
             )
           );
-        }
-        resolve();
-      };
+        };
 
-      script.onerror = () => {
-        console.log("[RelayerSDKLoader] script onerror... ");
-        reject(
-          new Error(
-            `RelayerSDKLoader: Failed to load Relayer SDK from ${SDK_CDN_URL}`
-          )
-        );
-      };
-
-      console.log("[RelayerSDKLoader] add script to DOM...");
-      document.head.appendChild(script);
-      console.log("[RelayerSDKLoader] script added!")
+        console.log("[RelayerSDKLoader] add script to DOM...");
+        document.head.appendChild(script);
+        console.log("[RelayerSDKLoader] script added!");
+      }
     });
   }
 }

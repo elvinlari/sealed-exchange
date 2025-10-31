@@ -1,15 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npx -y pnpm@9.12.3 install --frozen-lockfile",
+  "installCommand": "npx -y pnpm@9.12.3 install",
   "buildCommand": "npx -y pnpm@9.12.3 --filter @sealed-exchange/fhevm-sdk run build && npx -y pnpm@9.12.3 --filter @sealed-exchange/ui run build",
   "framework": null,
   "outputDirectory": "dist",
   "ignoreCommand": "sh -c 'git rev-parse HEAD^ >/dev/null 2>&1 || exit 1; ROOT=$(git rev-parse --show-toplevel); git -C \"$ROOT\" diff --quiet HEAD^ HEAD -- packages/ui packages/fhevm-sdk'"
-  ,
-  "rewrites": [
-    {
-      "source": "/relayer/:path*",
-      "destination": "https://cdn.zama.ai/relayer-sdk-js/0.2.0/:path*"
-    }
-  ]
 }
