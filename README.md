@@ -22,7 +22,7 @@ Traditional DEXs expose all trading activity on-chain, creating opportunities fo
 
 ### The Problem with Centralized Exchanges
 
-Centralized exchanges (CEXs) like Binance, Coinbase, and Kraken have dominated crypto trading, but they come with critical flaws:
+Centralized exchanges (CEXs) have dominated crypto trading, but they come with critical flaws:
 
 - **❌ Custody Risk**: You don't control your assets ("not your keys, not your coins")
 - **❌ Single Point of Failure**: Exchange hacks, insolvency, or regulatory actions can freeze or lose your funds
