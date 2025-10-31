@@ -18,7 +18,7 @@ tmp
 .vercel
 
 # files
-# *.env
+*.env
 *.log
 .DS_Store
 .pnp.*
