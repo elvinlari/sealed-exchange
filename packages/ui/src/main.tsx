@@ -26,3 +26,12 @@ if (!rootElement.innerHTML) {
     </StrictMode>,
   )
 }
+
+// Register a service worker to rewrite CDN requests to same-origin
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch((err) => {
+      console.warn('Service worker registration failed', err)
+    })
+  })
+}
