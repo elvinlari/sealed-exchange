@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npx -y pnpm@9.12.3 --filter @sealed-exchange/fhevm-sdk run build && npx -y pnpm@9.12.3 --filter @sealed-exchange/ui run build",
   "devCommand": "pnpm run dev",
-  "installCommand": "npx -y pnpm@9.12.3 install",
+  "installCommand": "npx -y pnpm@9.12.3 install --frozen-lockfile",
   "framework": null,
   "outputDirectory": "packages/ui/dist",
   "ignoreCommand": "sh -c 'git rev-parse HEAD^ >/dev/null 2>&1 || exit 1; ROOT=$(git rev-parse --show-toplevel); git -C \"$ROOT\" diff --quiet HEAD^ HEAD -- packages/ui packages/fhevm-sdk'"
