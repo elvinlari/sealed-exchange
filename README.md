@@ -161,7 +161,6 @@ pnpm hardhat node
 pnpm deploy:localhost
 
 # Terminal 3: Start the UI
-cd packages/ui
 pnpm dev
 ```
 
