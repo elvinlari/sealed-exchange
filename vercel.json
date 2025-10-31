@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm run build:ui",
+  "devCommand": "pnpm run dev",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "outputDirectory": "packages/ui/dist",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./packages/ui ./packages/fhevm-sdk"
+}
