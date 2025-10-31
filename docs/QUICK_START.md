@@ -118,13 +118,13 @@ pnpm dev
 Terminal 2 (with local chain running and default hardhat wallets):
 ```bash
 # Mint initial tokens to deployer
-pnpm hardhat run scripts/mint-initial-tokens.ts --network localhost
+pnpm dlx tsx scripts/mint-initial-tokens.ts --network localhost
 
 # Register assets in Vault
-pnpm hardhat run scripts/register-market-assets.ts --network localhost
+pnpm dlx tsx scripts/register-market-assets.ts --network localhost
 
 # Fund Vault with liquidity (optional)
-pnpm hardhat run scripts/fund-vault-available.ts --network localhost
+pnpm dlx tsx scripts/fund-vault-available.ts --network localhost
 ```
 
 ## First Trade
@@ -182,19 +182,19 @@ pnpm hardhat run scripts/fund-vault-available.ts --network localhost
 
 ```bash
 # Submit a buy order
-pnpm hardhat run scripts/submit-buy-order.ts --network localhost
+pnpm dlx tsx scripts/submit-buy-order.ts --network localhost
 
 # Submit a sell order
-pnpm hardhat run scripts/submit-sell-order.ts --network localhost
+pnpm dlx tsx scripts/submit-sell-order.ts --network localhost
 
 # Finalize batch
-pnpm hardhat run scripts/finalize-batch.ts --network localhost
+pnpm dlx tsx scripts/finalize-batch.ts --network localhost
 
 # Settle batch
-pnpm hardhat run scripts/settle-batch.ts --network localhost
+pnpm dlx tsx scripts/settle-batch.ts --network localhost
 
 # Check balances
-pnpm hardhat run scripts/log-vault-balances.ts --network localhost
+pnpm dlx tsx scripts/log-vault-balances.ts --network localhost
 ```
 
 ## Sepolia Testnet
