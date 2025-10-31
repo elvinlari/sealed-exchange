@@ -5,4 +5,11 @@
   "framework": null,
   "outputDirectory": "dist",
   "ignoreCommand": "sh -c 'git rev-parse HEAD^ >/dev/null 2>&1 || exit 1; ROOT=$(git rev-parse --show-toplevel); git -C \"$ROOT\" diff --quiet HEAD^ HEAD -- packages/ui packages/fhevm-sdk'"
+  ,
+  "rewrites": [
+    {
+      "source": "/relayer/:path*",
+      "destination": "https://cdn.zama.ai/relayer-sdk-js/0.2.0/:path*"
+    }
+  ]
 }
