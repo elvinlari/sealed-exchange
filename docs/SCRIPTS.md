@@ -29,7 +29,7 @@ Most scripts support environment variables for configuration:
 
 ```bash
 # Example: Mint specific amount
-AMOUNT=1000000 TOKEN=CUSDT pnpm hardhat run scripts/mint-initial-tokens.ts --network localhost
+AMOUNT=1000000 TOKEN=CUSDT pnpm dlx tsx scripts/mint-initial-tokens.ts --network localhost
 ```
 
 ## Initialization Scripts
