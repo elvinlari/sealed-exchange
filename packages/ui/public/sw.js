@@ -1,6 +1,11 @@
 /* Simple SW to rewrite Zama CDN requests to same-origin /relayer paths to avoid CORS */
 self.addEventListener('fetch', (event) => {
   try {
+    // Don't intercept anything on localhost environments
+    const selfHost = self.location.hostname;
+    if (['localhost', '127.0.0.1', '::1', '0.0.0.0'].includes(selfHost)) {
+      return;
+    }
     const url = new URL(event.request.url);
     if (url.hostname === 'cdn.zama.ai' && url.pathname.startsWith('/relayer-sdk-js/0.2.0/')) {
       // Map to our same-origin rewrite: /relayer/:path*

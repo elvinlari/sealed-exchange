@@ -27,8 +27,11 @@ if (!rootElement.innerHTML) {
   )
 }
 
-// Register a service worker to rewrite CDN requests to same-origin
-if ('serviceWorker' in navigator) {
+// Register the service worker to rewrite CDN requests to same-origin only in non-localhost environments
+if (
+  'serviceWorker' in navigator &&
+  !['localhost', '127.0.0.1', '::1', '0.0.0.0'].includes(window.location.hostname)
+) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch((err) => {
       console.warn('Service worker registration failed', err)
