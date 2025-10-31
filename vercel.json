@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "sh -c 'corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm run build:ui'",
+  "buildCommand": "pnpm run build:ui",
   "devCommand": "pnpm run dev",
-  "installCommand": "sh -c 'corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install'",
+  "installCommand": "corepack enable && corepack prepare pnpm@9.12.3 --activate && pnpm install --frozen-lockfile",
   "framework": null,
   "outputDirectory": "packages/ui/dist"
 }
