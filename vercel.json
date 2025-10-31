@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npx -y pnpm@9.12.3 run build:ui",
+  "buildCommand": "npx -y pnpm@9.12.3 --filter @sealed-exchange/fhevm-sdk run build && npx -y pnpm@9.12.3 --filter @sealed-exchange/ui run build",
   "devCommand": "pnpm run dev",
   "installCommand": "npx -y pnpm@9.12.3 install --frozen-lockfile",
   "framework": null,
