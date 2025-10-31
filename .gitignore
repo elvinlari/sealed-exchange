@@ -23,6 +23,5 @@ tmp
 .DS_Store
 .pnp.*
 coverage.json
-pnpm-lock.yaml
 yarn.lock
 docs/inspect-decrypt-changes.md
