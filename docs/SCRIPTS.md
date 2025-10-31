@@ -20,7 +20,7 @@ The `scripts/` directory contains operational scripts for managing the Sealed Ex
 
 ```bash
 # Local network 
-pnpm hardhat run scripts/SCRIPT_NAME.ts --network localhost
+pnpm dlx tsx scripts/SCRIPT_NAME.ts --network localhost
 ```
 
 ### With Custom Parameters
@@ -40,7 +40,7 @@ Register token assets in the Vault.
 
 **Usage:**
 ```bash
-pnpm hardhat run scripts/register-market-assets.ts --network localhost
+pnpm dlx tsx scripts/register-market-assets.ts --network localhost
 ```
 
 **What it does:**
@@ -56,7 +56,7 @@ Mint initial token supply to all addresses in addresses.json
 
 **Usage:**
 ```bash
-pnpm hardhat run scripts/mint-initial-tokens.ts --network localhost
+pnpm dlx tsx scripts/mint-initial-tokens.ts --network localhost
 ```
 
 ### `fund-vault-available.ts`
@@ -65,7 +65,7 @@ Deposit tokens into Vault for trading.
 
 **Usage:**
 ```bash
-pnpm hardhat run scripts/fund-vault-available.ts --network localhost
+pnpm dlx tsx scripts/fund-vault-available.ts --network localhost
 ```
 
 **What it does:**
@@ -81,13 +81,13 @@ Submit an encrypted buy order to a market.
 
 **Usage:**
 ```bash
-pnpm hardhat run scripts/submit-buy-order.ts --network localhost
+pnpm dlx tsx scripts/submit-buy-order.ts --network localhost
 ```
 
 **Example:**
 ```bash
 # Buy BTC with 50k USDT at tick 2, no partial fills
-AMOUNT=50000 TICK=2 PARTIAL=false pnpm hardhat run scripts/submit-buy-order.ts --network localhost
+AMOUNT=50000 TICK=2 PARTIAL=false pnpm dlx tsx scripts/submit-buy-order.ts --network localhost
 ```
 
 ### `submit-sell-order.ts`
@@ -96,13 +96,13 @@ Submit an encrypted sell order.
 
 **Usage:**
 ```bash
-pnpm hardhat run scripts/submit-sell-order.ts --network localhost
+pnpm dlx tsx scripts/submit-sell-order.ts --network localhost
 ```
 
 **Example:**
 ```bash
 # Sell 0.5 BTC at tick 1
-AMOUNT=0.5 TICK=1 pnpm hardhat run scripts/submit-sell-order.ts --network localhost
+AMOUNT=0.5 TICK=1 pnpm dlx tsx scripts/submit-sell-order.ts --network localhost
 ```
 
 ### `submit-cancel-order.ts`
@@ -111,7 +111,7 @@ Cancel an order before batch finalization.
 
 **Usage:**
 ```bash
-ORDER_ID=0 MARKET=0x... pnpm hardhat run scripts/submit-cancel-order.ts --network localhost
+ORDER_ID=0 MARKET=0x... pnpm dlx tsx scripts/submit-cancel-order.ts --network localhost
 ```
 
 **Parameters:**
@@ -124,7 +124,7 @@ Finalize current batch and compute clearing price.
 
 **Usage:**
 ```bash
-pnpm hardhat run scripts/finalize-batch.ts --network localhost
+pnpm dlx tsx scripts/finalize-batch.ts --network localhost
 ```
 
 **What it does:**
@@ -151,7 +151,7 @@ Settle all orders at clearing price.
 
 **Usage:**
 ```bash
-pnpm hardhat run scripts/settle-batch.ts --network localhost
+pnpm dlx tsx scripts/settle-batch.ts --network localhost
 ```
 
 **What it does:**
@@ -181,7 +181,7 @@ View your orders in current batch.
 
 **Usage:**
 ```bash
-MARKET=0x... npx hardhat run scripts/query-orders.ts --network localhost
+MARKET=0x... pnpm dlx tsx scripts/query-orders.ts --network localhost
 ```
 
 **Output:**
