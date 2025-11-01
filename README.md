@@ -244,6 +244,20 @@ sealed-exchange/
 - **[Price Discovery](./docs/PRICE_DISCOVERY.md)** - How the clearing price is computed
 - **[Scripts Reference](./docs/SCRIPTS.md)** - Management scripts and utilities
 
+### Deployed Contracts (Sepolia)
+
+View the deployed contracts on the block explorer:
+
+1. Vault — https://sepolia.etherscan.io/address/0x147b12ad041f2e44e998238dc6d6052d40638Efe
+2. Market Pair cETH/cUSDT — https://sepolia.etherscan.io/address/0xba3f10210f06da170ca014be3204d8786cc7f1e0
+3. Market Pair cBTC/cUSDT — https://sepolia.etherscan.io/address/0xdee6005cD54afeb3129e354ebf5dc74C2eE83310
+4. Market Pair cXAU/cUSDT — https://sepolia.etherscan.io/address/0xe57076CA2fbB2A9335B3be7B653ED72e01fc34b7
+5. cUSDT — https://sepolia.etherscan.io/address/0x0fb30CD1fA847F464b28bFD9367903ebABCAa8E4
+6. cBTC — https://sepolia.etherscan.io/address/0x6b1f3C89F1628c9931c40d512C0a4dEF0A3CDe0e
+7. cETH — https://sepolia.etherscan.io/address/0x357F380d0683959054fd02fC9137f032F94bE2F2
+8. cXAU — https://sepolia.etherscan.io/address/0xDbDc12d1fb9e7A05e2b98aAeA694FAb260A4994b
+
+
 ### External Resources
 - **[Zama fhEVM Docs](https://docs.zama.ai/fhevm)** - Fully Homomorphic Encryption documentation
 - **[Hardhat Documentation](https://hardhat.org/docs)** - Development environment guide
