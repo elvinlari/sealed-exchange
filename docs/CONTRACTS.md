@@ -133,4 +133,5 @@ Sealed Exchange uses three main contracts for private, on-chain trading:
 ## Learn More
 
 - [Architecture](./ARCHITECTURE.md) - System design
+- [Price Discovery](./PRICE_DISCOVERY.md) - How the clearing price is computed
 - [Scripts](./SCRIPTS.md) - Operational tools

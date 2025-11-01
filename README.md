@@ -241,6 +241,7 @@ sealed-exchange/
 - **[Quick Start Guide](./docs/QUICK_START.md)** - Get running in minutes
 - **[Architecture Overview](./docs/ARCHITECTURE.md)** - System design and components
 - **[Smart Contracts](./docs/CONTRACTS.md)** - Detailed contract documentation
+- **[Price Discovery](./docs/PRICE_DISCOVERY.md)** - How the clearing price is computed
 - **[Scripts Reference](./docs/SCRIPTS.md)** - Management scripts and utilities
 
 ### External Resources
