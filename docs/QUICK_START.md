@@ -283,6 +283,7 @@ pnpm test:sepolia
 
 - **Architecture:** Read [Architecture Guide](./ARCHITECTURE.md) to understand the system
 - **Contracts:** See [Smart Contracts](./CONTRACTS.md) for detailed API docs
+- **Price Discovery:** See [Price Discovery](./PRICE_DISCOVERY.md) - How the clearing price is computed
 
 ## Getting Help
 

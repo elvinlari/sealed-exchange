@@ -226,3 +226,4 @@ User → Vault.withdraw()
 ## Next Steps
 
 - Read [Smart Contracts](./CONTRACTS.md) for detailed API documentation
+- Read [Price Discovery](./PRICE_DISCOVERY.md) - How the clearing price is computed
