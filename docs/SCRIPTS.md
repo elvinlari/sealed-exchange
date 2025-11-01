@@ -207,7 +207,7 @@ Order #1
 ## Next Steps
 
 - Check [Architecture](./ARCHITECTURE.md) for system design
-- [Price Discovery](./PRICE_DISCOVERY.md) - How the clearing price is computed
+- Check [Price Discovery](./PRICE_DISCOVERY.md) - How the clearing price is computed
 
 
 ---
